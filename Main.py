@@ -1,3 +1,4 @@
+fromimport os
 from telegram import (
     Update, Bot as TelegramBot,
     ReplyKeyboardMarkup, KeyboardButton
@@ -7,10 +8,10 @@ from telegram.ext import (
     ContextTypes, MessageHandler, filters
 )
 
-# 🔐 CONFIGURATION
-BOT_TOKEN = "8375916335:AAEldqyFe470YsPMzJp47GVmKSDQjYjkeTc"          # Sender bot
-RECEIVER_BOT_TOKEN = "8023709572:AAH25wliLGLb_ywzWr85Pt_rsisgRhpGXCM"  # Receiver bot
-RECEIVER_CHAT_ID = "6342057815"                                       # Where to send contact info
+# 🔐 CONFIGURATION (Railway Env Variables से)
+BOT_TOKEN = os.getenv("BOT_TOKEN")                     # Sender bot
+RECEIVER_BOT_TOKEN = os.getenv("RECEIVER_BOT_TOKEN")   # Receiver bot
+RECEIVER_CHAT_ID = os.getenv("RECEIVER_CHAT_ID")       # Where to send contact info
 
 # ✅ /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
